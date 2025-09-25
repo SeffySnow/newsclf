@@ -17,7 +17,7 @@ It ships as a clean **Python package** (importable API) and a single **CLI** (`n
 
 * **PyTorch**, **Hugging Face Transformers** (default: `distilbert-base-uncased`)
 * **scikit-learn**, **pandas**, **numpy**
-* **matplotlib** (confusion matrix plotting)
+* **matplotlib** 
 
 ---
 
