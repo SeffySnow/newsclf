@@ -143,7 +143,7 @@ pytest -q
 
 
 
-###Design choices & trade-offs
+### Design choices & trade-offs
 
 1) DistilBERT backbone (speed vs. headroom). I picked distilbert-base-uncased because it hits a sweet spot: strong accuracy on BBC-style topics with fast training/inference on CPU/MPS and smaller memory. The trade-off is a little less ceiling than bert-base-uncased or larger encoder models.
 
