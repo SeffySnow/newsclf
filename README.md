@@ -139,3 +139,14 @@ pytest -q
 ```
 
 [1]: https://www.kaggle.com/code/jacopoferretti/bbc-news-topic-modeling-with-bertopic-lda?utm_source=chatgpt.com "BBC News Topic Modeling with BERTopic & LDA"
+
+
+
+
+###Design choices & trade-offs
+
+1) DistilBERT backbone (speed vs. headroom). I picked distilbert-base-uncased because it hits a sweet spot: strong accuracy on BBC-style topics with fast training/inference on CPU/MPS and smaller memory. The trade-off is a little less ceiling than bert-base-uncased or larger encoder models.
+
+2) Manual PyTorch loop (control vs. convenience). I skipped transformers.Trainer and wrote a clean training loop (AdamW, warmup/decay, grad clip, early stopping). This gives me predictable behavior across versions and makes it obvious what’s happening at each step. 
+
+3) Macro-F1 for model selection. The best checkpoint is picked by macro-F1 on the validation set. Macro-F1 forces the model to respect every class, not just the common ones, and early stopping prevents overfitting while saving the actually best epoch—not the last one. The trade-off is that macro-F1 is slightly less intuitive than accuracy and can be noisier on tiny validation splits, but it yields fairer, more reliable performance across labels.
