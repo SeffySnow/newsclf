@@ -1,0 +1,60 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtual envs
+.venv/
+venv/
+env/
+.env/   # optional: if you use a venv named .env
+
+# Packaging / build
+build/
+dist/
+*.egg-info/
+.eggs/
+newsclf.egg-info/
+wheelhouse/
+
+# Tests / coverage
+.pytest_cache/
+.coverage*
+htmlcov/
+
+# Tool caches
+.ruff_cache/
+.mypy_cache/
+.pytype/
+.cache/
+
+# Notebooks
+*.ipynb
+.ipynb_checkpoints/
+
+# Editors / OS
+.DS_Store
+.vscode/
+.idea/
+*.swp
+Thumbs.db
+
+# Project outputs (generated)
+artifacts/
+reports/
+plots/
+logs/
+models/
+*.bin
+*.pt
+*.ckpt
+
+# Data (local; keep placeholders if needed)
+dataset/*
+!dataset/.gitkeep
+!dataset/README.md
+
+# Secrets
+kaggle.json
+.env
+.env.*
